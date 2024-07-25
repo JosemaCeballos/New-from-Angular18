@@ -8,10 +8,10 @@ import { CharacterAdapter } from '../adapters';
   providedIn: 'root',
 })
 export class CharactersService {
-  private mainUrl: string = 'https://rickandmortyapi.com/api/';
-  private charactersUrl: string = this.mainUrl + 'character';
+  private mainUrl = 'https://rickandmortyapi.com/api/';
+  private charactersUrl = this.mainUrl + 'character';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getCharacters(): Observable<Character[]> {
     return this.http

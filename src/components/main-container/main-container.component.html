@@ -1,12 +1,24 @@
-<div>
-  @if (characters$ | async; as characters) { @for (character of characters;
-  track character.id) { @defer (on viewport) {
-  <app-character-card
-    [character]="character"
-    (loaded)="makeApiCall($event)"
-    [characterInfo]="characterInfo[character.id]"
-  />
-  } @placeholder {
-  <div class="placeholder"></div>
-  } } }
-</div>
+<app-ng-content>
+
+  <div class="side-drawer">
+
+  </div>
+
+  <div class="content-drawer">
+
+    <div class="searcher__Container">
+      <app-search-bar [searcher]="searcher" />
+    </div>
+
+    <div class="card-container">
+      @if (characters$ | async; as characters) { @for (character of characters;
+      track character.id) { @defer (on viewport) {
+      <app-character-card [character]="character" (loaded)="makeApiCall($event)"
+        [characterInfo]="characterInfo[character.id]" />
+      } @placeholder {
+      <div class="placeholder"></div>
+      } } }
+    </div>
+  </div>
+
+</app-ng-content>

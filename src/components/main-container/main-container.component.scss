@@ -1,4 +1,27 @@
-.placeholder {
-    width: 220px;
-    height: 220px;
+@import '../../app/boxes.management.scss';
+
+.searcher__Container { 
+    margin: 1rem;
+}
+
+.card-container {
+    @include flex-wrap;
+
+    app-character-card {
+        width: 31%;
+        margin: 8px;
+
+        @include responsive(tab-port) {
+            width: 40%;
+        }
+
+        @include responsive(phone) {
+            width: 70%;
+        }
+    }
+
+    .placeholder {
+        width: 200px;
+        height: 200px;
+    }
 }

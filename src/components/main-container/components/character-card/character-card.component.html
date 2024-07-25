@@ -1,21 +1,26 @@
 @let characterLocal = character();
 @let characterInfoLocal = characterInfo();
 
-<div>
+<mat-card class="card" appearance="outlined">
   @if (characterLocal) {
-  <h3>{{ characterLocal.name }}</h3>
-
-  <img
-    [ngSrc]="characterLocal.image"
-    width="200"
-    height="200"
-    [alt]="characterLocal.name"
-  />
-
-  <h2>Character: {{ characterLocal.name }}</h2>
-
-  @if (characterInfoLocal) {
-  <p>{{ characterInfoLocal | json }}</p>
-  } 
-}
-</div>
+  <mat-card-header>
+    <mat-card-title>{{ characterLocal.name }}</mat-card-title>
+  </mat-card-header>
+  @if (characterLocal.name === 'Rick Sanchez') {
+  <img mat-card-image [ngSrc]="characterLocal.image" width="200" height="200" [alt]="characterLocal.name" priority="high">
+  } @else {
+  <img mat-card-image [ngSrc]="characterLocal.image" width="200" height="200" [alt]="characterLocal.name">
+  }
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item>Specie: {{ characterLocal.species }}</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>Status: {{ characterLocal.status }}</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>Gender: {{ characterLocal.gender }}</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>Type: {{!!characterLocal.type === false ? '-' : characterLocal.type}}</mat-list-item>
+    </mat-list>
+  </mat-card-content>
+  }
+</mat-card>

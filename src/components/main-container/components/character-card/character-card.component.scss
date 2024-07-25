@@ -1,0 +1,21 @@
+@import '../../../../app/boxes.management.scss';
+
+.card { 
+    @include flex-column-center;
+
+    mat-card-header { 
+        mat-card-title { 
+            text-align: center;
+            font-size: 16px;
+        }
+    }
+
+    mat-card-content { 
+        padding: 0;
+        mat-list { 
+            mat-list-item { 
+                text-align: center;
+            }
+        }
+    }
+}

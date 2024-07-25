@@ -1,0 +1,87 @@
+@mixin flex-wrap { 
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+@mixin flex-column-start {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+@mixin flex-column-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-column-end {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+@mixin flex-row-center {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+@mixin flex-row-start {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+@mixin flex-row-start-center {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+@mixin flex-row-between {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+@mixin responsive($device) {
+    @if $device ==phone {
+        @media screen and (max-width: 37.5em) {
+            @content;
+        }
+    }
+
+    @if $device ==tab-port {
+        @media screen and (max-width: 56.25em) {
+            @content;
+        }
+    }
+
+    @if $device ==tab-land {
+        @media screen and (max-width: 75em) {
+            @content;
+        }
+    }
+
+    @if $device ==mid-desktop {
+        @media screen and (max-width: 93.75em) {
+            @content;
+        }
+    }
+
+    @if $device ==big-desktop {
+        @media screen and (min-width: 112.5em) {
+            @content;
+        }
+    }
+}

@@ -1,0 +1,20 @@
+<mat-drawer-container autosize>
+    <mat-drawer #drawer mode="over">
+        <mat-icon svgIcon="rick-and-morty" aria-hidden="false"></mat-icon>
+
+        <ng-content select=".side-drawer"></ng-content>
+    </mat-drawer>
+
+    <div>
+        <button mat-mini-fab aria-label="menu-icon" (click)="drawer.toggle()" class="menu__Container--Icon">
+            @if (!drawer.opened) { 
+            <mat-icon>menu</mat-icon>
+            } @else {
+            <mat-icon>close</mat-icon>
+            }
+        </button>
+    </div>
+
+    <ng-content select=".content-drawer"></ng-content>
+
+</mat-drawer-container>
